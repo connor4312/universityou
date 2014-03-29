@@ -5,7 +5,7 @@ uniApp.controller('LoginbarCtrl', ['UserService', '$scope', function(user, $scop
         user.getUser(function (user) {
             if (user) {
                 $scope.logged = true;
-                $scope.user = {};
+                $scope.user = user;
             }
         });
     }
