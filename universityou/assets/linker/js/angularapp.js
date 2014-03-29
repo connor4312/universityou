@@ -5,7 +5,10 @@ var uniApp = angular.module('uniApp', [
 
 uniApp.config(['$routeProvider',
     function ($routeProvider) {
-        $routeProvider.when('/', {
+        $routeProvider.when('/intro', {
+            templateUrl: 'partial/intro.html',
+            controller: 'IntroCtrl'
+        }).when('/', {
             templateUrl: 'partial/index.html',
             controller: 'IndexCtrl'
         }).when('/auth/login', {
@@ -16,7 +19,7 @@ uniApp.config(['$routeProvider',
             controller: 'AuthCtrl'
         }).when('/:subject', {
             templateUrl: 'partial/index.html',
-            controller: 'IntroCtrl'
+            controller: 'IndexCtrl'
         }).when('/:subject/:course', {
             templateUrl: 'partial/course.html',
             controller: 'CourseCtrl'

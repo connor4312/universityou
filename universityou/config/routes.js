@@ -28,10 +28,6 @@
 
 module.exports.routes = {
 
-  '/': {
-    view: 'home/index'
-  },
-
   'get /api/user': {
     controller: 'UserController',
     action: 'current'
@@ -77,6 +73,13 @@ module.exports.routes = {
   'get /api/subjects/:id': {
     controller: 'SubjectsController',
     action: 'find'
+  },
+
+  '/': {
+    view: 'home/index'
+  },
+  '/:something': {
+    view: 'home/index'
   }
 };
 
