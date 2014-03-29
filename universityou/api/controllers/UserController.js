@@ -34,11 +34,10 @@ module.exports = {
       courses: []
     }).done(function(err, user) {
       if (err) {
-        console.log(err);
         return res.json(err, 400);
       } else {
         req.session.user = user.id;
-        res.json(user);
+        return res.json(user);
       }
     });
   },

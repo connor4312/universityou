@@ -9,6 +9,9 @@ module.exports = {
     },
     children: {
       type: 'ARRAY'
+    },
+    style: {
+      type: 'ARRAY'
     }
   }
 };

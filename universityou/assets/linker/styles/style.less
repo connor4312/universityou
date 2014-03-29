@@ -1,7 +1,54 @@
 @import '../../bower_components/bootstrap/less/bootstrap.less';
 
 @font-family-sans-serif: "museo-sans";
+@brand-primary: #fac564;
 
+// and disabled options for all buttons
+.button-variant(@color; @background; @border) {
+  color: #666;
+  background: none;
+  border-color: @border;
+  border-width: 2px;
+
+  &:hover,
+  &:focus,
+  &:active,
+  &.active,
+  .open .dropdown-toggle& {
+    color: @color;
+        border-color: darken(@border, 12%);
+  }
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    &,
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+          border-color: @border;
+    }
+  }
+
+  .badge {
+    color: @background;
+    background-color: @color;
+  }
+}
+
+html, body {
+    height: 100%;
+}
+#content {
+    min-height: 100%;
+    margin-bottom: -40px;
+
+    &:after {
+        content: "";
+        display: block;
+        height: 40px;
+    }
+}
 
 #intro {
     background: url('../../images/introbg.png');
@@ -31,6 +78,7 @@
         padding: 50px 0 25px;
         color: #00;
         font-weight: 300;
+        margin: 0;
 
         b {
             font-weight: 500;
@@ -63,10 +111,12 @@
 }
 
 .header {
-    margin: 0 0 -20px;
+    margin: 0;
     background: #222;
     line-height: 50px;
     text-align: center;
+    position: relative;
+    z-index: 1000;
 
     img {
         border-radius: 50%;
@@ -111,8 +161,40 @@
 
             a {
                 color: #ccc;
+                display: block;
             }
         }
+    }
+}
+
+.half-yel {
+    position: relative;
+
+    &:before {
+        content: "";
+        display: block;
+        background: url('../../images/introbg.png');
+        width: 100%;
+        height: 150px;
+        top: -20px;
+        left: 0;
+        z-index: -2;
+        position: absolute;
+    }
+
+    h1 {
+        color: #fff;
+        text-align: center;
+        font-weight: 100;
+        text-transform: uppercase;
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+    }
+    .half-yel-container {
+        background: #fff;
+        padding: 20px 20px 0;
+        border-radius: 8px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        margin-bottom: 50px;
     }
 }
 
@@ -126,8 +208,70 @@
     margin: 6px 0;
 }
 
+#sidebar {
+    position: fixed;
+    top: 60px;
+    left: 0px;
+    padding: 0;
+    bottom: 0;
+    background: #333;
+    margin: 0;
+    z-index: 100;
+
+    a {
+        display: block;
+        padding: 10px;
+        font-size: 1.2em;
+        font-weight: 200;
+        color: #fff;
+        border-bottom: 1px solid #262626;
+        border-top: 1px solid #444;
+
+        li:last-child & {
+            border-bottom: none;
+        }
+
+        span {
+            max-width: 0px;
+            display: inline-block;
+            overflow: hidden;
+            position: relative;
+            top: 0.4em;
+            left: 0.4em;
+            .transition(0.3s);
+        }
+
+        &:hover {
+            color: #000;
+            background: #fac564;
+            border-color: #fac564;
+            text-shadow: 0 1px 3p rgba(0, 0, 0, 0.25);
+        }
+    }
+
+    &:hover a span {
+        max-width: 500px;
+        padding: 0 15px 0 0;
+    }
+
+    i {
+        width: 1.5em;
+        line-height: 1.5em;
+        text-align: center;
+        border-radius: 50%;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5), 0 -1px 0 rgba(255, 255, 255, 0.3);
+    }
+}
+
 footer {
     font-weight: 200;
     padding: 10px;
     color: #999;
+    padding-left: 56px;
+
+    &:after {
+        clear: both;
+        content: "";
+        display: block;
+    }
 }

@@ -17,9 +17,9 @@ uniApp.factory('ClassFactory', ['$http', function ($http) {
         all: function (callback) {
             return classes(callback);
         },
-        find: function (id, callback) {
+        find: function (where, callback) {
             return classes(function (subs) {
-                var index = _.findIndex(subs, {id: id});
+                var index = _.findIndex(subs, where);
                 callback(index >= 0 ? subs[index] : []);
             });
         }

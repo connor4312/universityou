@@ -1,7 +1,7 @@
 module.exports = {
   tableName: 'users',
   attributes: {
-    username: {
+    name: {
       type: 'STRING',
       unique: true,
       required: true

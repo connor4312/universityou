@@ -1,0 +1,36 @@
+<div class="half-yel">
+    <div class="container">
+        <h1>UniversitYou Admissions</h1>
+        <div class="col-md-6 col-sm-offset-3 half-yel-container">
+            <form role="form" class="form-horizontal" ng-submit="register()">
+                <div class="alert alert-{{ message[0] }}" ng-if="message" ng-click="message = null">
+                    {{ message[1] }}
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Username</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" placeholder="Username" ng-model="user.name">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Email</label>
+                    <div class="col-sm-9">
+                        <input type="email" class="form-control" placeholder="Email Address" ng-model="user.email">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Password</label>
+                    <div class="col-sm-9">
+                        <input type="password" class="form-control" placeholder="Password" ng-model="user.password">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label"></label>
+                    <div class="col-sm-9">
+                        <button class="btn btn-primary btn-block">Register</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

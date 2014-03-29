@@ -6,7 +6,7 @@ uniApp.factory('SubjectFactory', ['$http', function ($http) {
             return cb(subject_list);
         }
 
-        return $http.post('api/subjects', data.user)
+        return $http.get('api/subjects')
             .success(function(results) {
                 subject_list = results;
                 cb(subject_list);
@@ -17,15 +17,15 @@ uniApp.factory('SubjectFactory', ['$http', function ($http) {
         all: function (callback) {
             return subjects(callback);
         },
-        find: function (id, callback) {
+        find: function (where, callback) {
             return subjects(function (subs) {
-                var index = _.findIndex(subs, {id: id});
+                var index = _.findIndex(subs, where);
                 callback(index >= 0 ? subs[index] : []);
             });
         },
-        children: function (id, callback) {
+        children: function (where, callback) {
             return subjects(function (subs) {
-                var index = _.findIndex(subs, {id: id});
+                var index = _.findIndex(subs, where);
                 if (index < 0) {
                     callback([]);
                 }
