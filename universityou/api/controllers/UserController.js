@@ -37,7 +37,7 @@ module.exports = {
         console.log(err);
         return res.json(err, 400);
       } else {
-        req.session.user = user._id;
+        req.session.user = user.id;
         res.json(user);
       }
     });
@@ -65,7 +65,7 @@ module.exports = {
         }
 
         if (match) {
-          req.session.user = user._id;
+          req.session.user = user.id;
           res.json(user);
         } else {
           res.json({}, 400);
@@ -115,9 +115,7 @@ module.exports = {
         return res.json({}, 400);
       }
 
-      index = _.findIndex(user.courses, function (e) {
-        return e.course == req.param('course_id');
-      });
+      index = _.findIndex(user.courses, {course: req.param('course_id')});
 
       insert = {
         course_id: req.param('course_id'),

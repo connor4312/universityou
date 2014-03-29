@@ -7,7 +7,7 @@ module.exports = {
     slug: {
       type: 'STRING'
     },
-    parents: {
+    children: {
       type: 'ARRAY'
     }
   }
