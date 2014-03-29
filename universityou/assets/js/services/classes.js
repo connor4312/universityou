@@ -1,7 +1,4 @@
-var uniFactories = angular.module('uniFactories', []);
-
-
-uniFactories.factory('ClassFactory', ['$http', function ($http) {
+uniApp.factory('ClassFactory', ['$http', function ($http) {
     var class_list;
 
     var classes = function (cb) {

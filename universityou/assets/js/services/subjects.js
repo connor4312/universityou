@@ -1,7 +1,4 @@
-var uniFactories = angular.module('uniFactories', []);
-
-
-uniFactories.factory('SubjectFactory', ['$http', function ($http) {
+uniApp.factory('SubjectFactory', ['$http', function ($http) {
     var subject_list;
 
     var subjects = function (cb) {

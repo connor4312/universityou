@@ -1,6 +1,5 @@
 var uniApp = angular.module('uniApp', [
-    'ngRoute',
-    'uniControllers'
+    'ngRoute'
 ]);
 
 uniApp.config(['$routeProvider',

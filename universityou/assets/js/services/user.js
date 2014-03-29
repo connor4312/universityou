@@ -1,14 +1,16 @@
-var uniFactories = angular.module('uniFactories', []);
-
-
-uniFactories.factory('UserFactory', ['$http', function ($http) {
+uniApp.factory('UserService', ['$http', function ($http) {
     var currentUser;
+    var listeners = [];
 
     var basicReq = function (url, data) {
         return $http.post(url, data.user)
             .success(function(results) {
                 currentUser = results;
                 data.success(results);
+
+                for (var i = 0, l = listeners.length; i < l; i++) {
+                    listeners[i](results);
+                }
             })
             .error(data.error || function(){})
             .finally(data.finally || function(){});
@@ -16,13 +18,13 @@ uniFactories.factory('UserFactory', ['$http', function ($http) {
 
     return {
         login: function (data) {
-            return basicReq('api/auth', data);
+            return basicReq('api/user', data);
         },
         register: function (data) {
-            return basicReq('api/auth/create', data);
+            return basicReq('api/user/create', data);
         },
         watched: function (data) {
-            return basicReq('api/auth/watched', data);
+            return basicReq('api/user/watched', data);
         },
         getUser: function (callback) {
             if (currentUser) {
@@ -30,12 +32,18 @@ uniFactories.factory('UserFactory', ['$http', function ($http) {
             }
 
             return $http
-                .get('api/auth')
+                .get('api/user')
                 .success(function(results) {
                     currentUser = results;
                     callback(results);
                 })
-                .error(callback(false));
+                .error(function () {
+                    callback(false);
+                });
+        },
+        getUserAndListen: function (callback) {
+            getUser(callback);
+            listeners.push(callback);
         }
     };
 }]);

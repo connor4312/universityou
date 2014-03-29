@@ -1,7 +1,4 @@
-var uniFactories = angular.module('uniFactories', []);
-
-
-uniFactories.factory('CoursesFactory', ['$http', function ($http) {
+uniApp.factory('CoursesFactory', ['$http', function ($http) {
     var course_list;
 
     var courses = function (cb) {
