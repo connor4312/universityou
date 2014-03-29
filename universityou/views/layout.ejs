@@ -14,6 +14,7 @@
     <!--STYLES-->
     <link rel="stylesheet" href="/linker/styles/style.css">
     <!--STYLES END-->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.min.css">
     
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-animate/angular-animate.js"></script>
@@ -27,6 +28,7 @@
     <script src="js/services/ytplayer.js"></script>
 
     <script src="js/controllers/loginbar.js"></script>
+    <script src="js/controllers/sidebar.js"></script>
     <script src="js/controllers/intro.js"></script>
     <script src="js/controllers/subject.js"></script>
     <script src="js/controllers/course.js"></script>
@@ -42,10 +44,10 @@
 
     <!-- Include the view file for the current controller/route -->
     <div ng-app="uniApp" id="content">
-      <div class="header">
-          <div class="container">
+      <div ng-controller="LoginbarCtrl">
+        <div class="header">
+            <div class="container">
               <a href="#/" class="logo">UniversitYou</a>
-              <div ng-controller="LoginbarCtrl">
                 <div ng-if="logged">
                   <div class="btn">Welcome {{ user.name }}!</div>
                 </div>
@@ -58,8 +60,15 @@
                     </ul>
                   </div>
                 </div>
-              </div>
-          </div>
+            </div>
+        </div>
+        <div ng-if="logged" ng-controller="SidebarCtrl">
+          <ul id="sidebar">
+            <li ng-repeat="subject in subjects">
+              <a href="#/{{ subject.slug }}"><i class="fa fa-{{ subject.style[0] }}" style="background-color:#{{ subject.style[1] }}"></i><span>{{ subject.name }}</span></a>
+            </li>
+          </ul>
+        </div>
       </div>
       <div ng-view>
         

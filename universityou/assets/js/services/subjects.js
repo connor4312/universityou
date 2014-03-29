@@ -6,7 +6,7 @@ uniApp.factory('SubjectFactory', ['$http', function ($http) {
             return cb(subject_list);
         }
 
-        return $http.post('api/subjects', data.user)
+        return $http.get('api/subjects')
             .success(function(results) {
                 subject_list = results;
                 cb(subject_list);
