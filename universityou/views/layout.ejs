@@ -12,12 +12,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
     <!--STYLES-->
-    <link rel="stylesheet" href="/linker/styles/style.css">
+    <link rel="stylesheet" href="/min/production.css">
     <!--STYLES END-->
-    
+
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-animate/angular-animate.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="/js/lib/jsCarousel.js"></script>
+
 
     <script src="js/angularapp.js"></script>
 
@@ -25,6 +27,8 @@
     <script src="js/services/subjects.js"></script>
     <script src="js/services/courses.js"></script>
     <script src="js/services/ytplayer.js"></script>
+    <script src="js/controllers/index.js"></script>
+
 
     <script src="js/controllers/loginbar.js"></script>
     <script src="js/controllers/intro.js"></script>
@@ -62,7 +66,7 @@
           </div>
       </div>
       <div ng-view>
-        
+
       </div>
     </div>
 
@@ -72,7 +76,7 @@
       Client-side Javascript
       ========================
 
-      You can import any js files in your `assets` directory as you would 
+      You can import any js files in your `assets` directory as you would
       normally: using <script></script> tags.
 
       Here's an example of importing a few dependencies, in order:
@@ -108,7 +112,7 @@
       Another way: The Asset Linker
       ========================
 
-      Sails supports a Grunt-based asset linker, to automatically inject 
+      Sails supports a Grunt-based asset linker, to automatically inject
       <link> and <script> tags, as well any client-side templates you're using
       into your HTML layouts and views, respecting dependencies.
 
