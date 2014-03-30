@@ -10,6 +10,9 @@ module.exports = {
     children: {
       type: 'ARRAY'
     },
+    courses: {
+      type: 'ARRAY'
+    },
     style: {
       type: 'ARRAY'
     }

@@ -10,9 +10,6 @@ module.exports = {
     difficulty: {
       type: 'INTEGER'
     },
-    subject: {
-      type: 'ARRAY'
-    },
     classes: {
       type: 'JSON'
     }

@@ -1,38 +1,38 @@
 <div class="half-yel">
-    <div class="col-md-10 col-sm-offset-1 half-yel-container index">
-        <div class="row top_videos">
-            <div class="col-xs-8 col-xs-offset-2">
-                <div class="col-xs-3"><img src="http://placehold.it/125x125" alt=""></div>
-                <div class="col-xs-3"><img src="http://placehold.it/125x125" alt=""></div>
-                <div class="col-xs-3"><img src="http://placehold.it/125x125" alt=""></div>
-                <div class="col-xs-3"><img src="http://placehold.it/125x125" alt=""></div>
-            </div>
-        </div>
-
+    <div class="container">
         <div class="row">
-            <div class="col-xs-8 col-xs-offset-2 dont_underline">
-
-                <a href="#/{{subject.name}}"class="col-xs-6" ng-repeat="subject in subjects">
-                    <div class="subject_wraper">
-                        <div class="subject_header">
-                            <!-- <a href="#/{{ subject.slug }}"><i class="fa fa-{{ subject.style[0] }}" style="color:#{{ subject.style[1] }}"></i><span>{{ subject.name }}</span></a> -->
-                            ICON
-                        </div>
-                        <div class="subject_body">
-                            <h4>{{subject.name}}</h4>
-                            <p>
-                                {{subject.desc}}
-                            </p>
-                        </div>
-                    </div>
-                </a>
+            <h1 class="col-sm-12 course-heading">All Subjects</h1>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 top_videos">
+                <div class="col-sm-8 col-sm-offset-2">
+                    <div class="col-sm-3"><img src="http://placehold.it/125x125" alt=""></div>
+                    <div class="col-sm-3"><img src="http://placehold.it/125x125" alt=""></div>
+                    <div class="col-sm-3"><img src="http://placehold.it/125x125" alt=""></div>
+                    <div class="col-sm-3"><img src="http://placehold.it/125x125" alt=""></div>
+                </div>
             </div>
-            <div class="col-xs-2">
-                <p>
-                    Ad Goes HereAd Goes HereAd Goes HereAd Goes HereAd Goes HereAd Goes HereAd Goes HereAd Goes HereAd Goes HereAd Goes HereAd Goes
-                    HereAd Goes HereAd Goes HereAd Goes HereAd Goes HereAd Goes HereAd Goes HereAd Goes HereAd Goes HereAd Goes HereAd Goes HereAd Goes
-                    HereAd Goes HereAd Goes Here
-                </p>
+
+            <div class="col-sm-12">
+                <div class="col-sm-9 dont_underline">
+                    <div class="col-sm-6" ng-repeat="subject in subjects">
+                        <a class="subject-header" style="background-color:#{{ subject.style[1] }}" href="#/{{subject.slug}}">
+                            <i class="fa fa-{{ subject.style[0] }}"></i><span>{{ subject.name }}</span></a>
+                        </a>
+                        <ul class="subject-body">
+                            <li ng-repeat="course in subject.courses">
+                                <a href="#/{{subject.slug}}/{{course.slug}}">{{ course.name }}</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <p>
+                        Ad Goes HereAd Goes HereAd Goes HereAd Goes HereAd Goes HereAd Goes HereAd Goes HereAd Goes HereAd Goes HereAd Goes HereAd Goes
+                        HereAd Goes HereAd Goes HereAd Goes HereAd Goes HereAd Goes HereAd Goes HereAd Goes HereAd Goes HereAd Goes HereAd Goes HereAd Goes
+                        HereAd Goes HereAd Goes Here
+                    </p>
+                </div>
             </div>
         </div>
     </div>

@@ -1,4 +1,4 @@
-uniApp.factory('SubjectFactory', ['$http', function ($http) {
+uniApp.factory('SubjectFactory', ['$http', 'CoursesFactory', function ($http, course) {
     var subject_list;
 
     var subjects = function (cb) {
@@ -13,6 +13,20 @@ uniApp.factory('SubjectFactory', ['$http', function ($http) {
             });
     };
 
+    var bind = function (sub, courses) {
+        newcourses = [];
+        for (var i = 0, l = courses.length; i < l; i++) {
+            index = _.findIndex(sub.courses, function (c) {
+                return c == courses[i].id;
+            });
+            if (index >= 0) {
+                newcourses.push(courses[i]);
+            }
+        }
+        sub.courses = newcourses;
+        return sub;
+    };
+
     return {
         all: function (callback) {
             return subjects(callback);
@@ -21,6 +35,19 @@ uniApp.factory('SubjectFactory', ['$http', function ($http) {
             return subjects(function (subs) {
                 var index = _.findIndex(subs, where);
                 callback(index >= 0 ? subs[index] : []);
+            });
+        },
+        bindCourses: function (subs, callback) {
+            course.all(function (courses) {
+                if (_.isArray(subs)) {
+                    for (var i = 0, l = subs.length; i < l; i++) {
+                        subs[i] = bind(subs[i], courses);
+                    }
+                } else {
+                    subs = bind(subs, courses);
+                }
+
+                callback(subs);
             });
         },
         children: function (where, callback) {
