@@ -38,7 +38,7 @@ module.exports.routes = {
     action: 'validate'
   },
   
-  'post /api/watched': {
+  'post /api/user/watched': {
     controller: 'UserController',
     action: 'watched'
   },

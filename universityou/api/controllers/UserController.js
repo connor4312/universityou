@@ -114,7 +114,7 @@ module.exports = {
         return res.json({}, 400);
       }
 
-      index = _.findIndex(user.courses, {course: req.param('course_id')});
+      index = _.findIndex(user.courses, {course_id: req.param('course_id')});
 
       insert = {
         course_id: req.param('course_id'),
@@ -125,10 +125,16 @@ module.exports = {
       if (index >= 0) {
         user.courses[index] = insert;
       } else {
-        user.couses.push = insert;
+        user.courses.push(insert);
       }
 
-      return res.json(user);
+      user.save(function (err) {
+        if (err) {
+          return res.json({}, 400);
+        }
+
+        return res.json(user);
+      });
     });
   },
 
