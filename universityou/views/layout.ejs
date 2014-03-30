@@ -69,7 +69,7 @@
                 </div>
             </div>
         </div>
-        <div ng-if="logged" ng-controller="SidebarCtrl">
+        <div ng-controller="SidebarCtrl">
           <ul id="sidebar">
             <li ng-repeat="subject in subjects">
               <a href="#/{{ subject.slug }}"><i class="fa fa-{{ subject.style[0] }}" style="background-color:#{{ subject.style[1] }}"></i><span>{{ subject.name }}</span></a>
