@@ -2,9 +2,8 @@ uniApp.factory('CoursesFactory', ['$http', 'ClassFactory', function ($http, clas
     var course_list;
 
     var courses = function (cb) {
-        debugger;
         if (course_list) {
-            return cb(course_list);
+            return cb(_.clone(course_list, true));
         }
 
         return $http.get('api/courses')

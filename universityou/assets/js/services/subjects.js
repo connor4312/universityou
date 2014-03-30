@@ -3,7 +3,7 @@ uniApp.factory('SubjectFactory', ['$http', 'CoursesFactory', function ($http, co
 
     var subjects = function (cb) {
         if (subject_list) {
-            return cb(subject_list);
+            return cb(_.clone(subject_list, true));
         }
 
         return $http.get('api/subjects')

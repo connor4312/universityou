@@ -3,7 +3,7 @@ uniApp.factory('ClassFactory', ['$http', function ($http) {
 
     var classes = function (cb) {
         if (class_list) {
-            return cb(class_list);
+            return cb(_.clone(class_list, true));
         }
 
         return $http.get('api/classes')
