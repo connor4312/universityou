@@ -17,8 +17,8 @@ uniApp.config(['$routeProvider',
             templateUrl: 'partial/register.html',
             controller: 'AuthCtrl'
         }).when('/:subject', {
-            templateUrl: 'partial/index.html',
-            controller: 'IndexCtrl'
+            templateUrl: 'partial/subject.html',
+            controller: 'SubCtrl'
         }).when('/:subject/:course', {
             templateUrl: 'partial/course.html',
             controller: 'CourseCtrl'

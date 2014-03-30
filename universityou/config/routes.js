@@ -32,17 +32,17 @@ module.exports.routes = {
     controller: 'UserController',
     action: 'current'
   },
-  
+
   'post /api/user': {
     controller: 'UserController',
     action: 'validate'
   },
-  
+
   'post /api/watched': {
     controller: 'UserController',
     action: 'watched'
   },
-  
+
   'post /api/user/create': {
     controller: 'UserController',
     action: 'create'

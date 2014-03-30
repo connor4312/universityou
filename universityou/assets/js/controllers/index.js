@@ -3,5 +3,7 @@ uniApp.controller('IndexCtrl', ['SubjectFactory','$scope', function(subject_list
     subject_list.all(function (results) {
       $scope.subjects = results;
     })
+
+
     }
 ]);
