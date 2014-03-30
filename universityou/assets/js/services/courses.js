@@ -9,7 +9,7 @@ uniApp.factory('CoursesFactory', ['$http', 'ClassFactory', function ($http, clas
         return $http.get('api/courses')
             .success(function(results) {
                 course_list = results;
-                cb(course_list);
+                cb(_.clone(course_list, true));
             });
     };
 
