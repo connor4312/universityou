@@ -14,7 +14,7 @@ module.exports = {
       type: 'ARRAY'
     },
     classes: {
-      type: 'ARRAY'
+      type: 'JSON'
     }
   }
 };

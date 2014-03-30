@@ -1,0 +1,11 @@
+<div class="half-yel">
+    <div class="container">
+        <h1>{{ cls.name }}</h1>
+        <div class="video" ng-bind-html="yt(cls.youtube, {rel: 0, showinfo: 0})"></div>
+        <ul class="related">
+            <li ng-repeat="related_class in course.related">
+                <a href="#/subject/{{ course.slug }}/{{ related_class.slug }}" ng-class="{primary: related_class.id == cls.id}"><span>{{ related_class.name }}</span></a>
+            </li>
+        </ul>
+    </div>
+</div>

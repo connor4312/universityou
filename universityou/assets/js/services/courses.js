@@ -6,7 +6,7 @@ uniApp.factory('CoursesFactory', ['$http', function ($http) {
             return cb(course_list);
         }
 
-        return $http.post('api/courses', data.user)
+        return $http.get('api/courses')
             .success(function(results) {
                 course_list = results;
                 cb(course_list);
