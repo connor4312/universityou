@@ -15,6 +15,22 @@ uniApp.factory('UserService', ['$http', function ($http) {
             .error(data.error || function(){})
             .finally(data.finally || function(){});
     };
+    
+    var getUser = function (callback) {
+        if (currentUser) {
+            return callback(currentUser);
+        }
+
+        return $http
+            .get('api/user')
+            .success(function(results) {
+                currentUser = results;
+                callback(results);
+            })
+            .error(function () {
+                callback(false);
+            });
+    };
 
     return {
         login: function (data) {
@@ -26,21 +42,7 @@ uniApp.factory('UserService', ['$http', function ($http) {
         watched: function (data) {
             return basicReq('api/user/watched', data);
         },
-        getUser: function (callback) {
-            if (currentUser) {
-                return callback(currentUser);
-            }
-
-            return $http
-                .get('api/user')
-                .success(function(results) {
-                    currentUser = results;
-                    callback(results);
-                })
-                .error(function () {
-                    callback(false);
-                });
-        },
+        getUser: getUser,
         getUserAndListen: function (callback) {
             getUser(callback);
             listeners.push(callback);

@@ -28,3 +28,21 @@ uniApp.config(['$routeProvider',
         });
     }
 ]);
+
+uniApp.filter('niceSeconds', function () {
+    return function (seconds) {
+        seconds = seconds || 0;
+        n_hours = Math.floor(seconds / 3600);
+        seconds %= 3600;
+        n_minutes = Math.floor(seconds / 60);
+        seconds %= 60;
+        n_seconds = seconds;
+
+        out = '';
+        if (n_hours) out += hours   + ':';
+        out += n_minutes + ':';
+        out += (n_seconds < 10 ? '0' : '') + n_seconds;
+
+        return out;
+    };
+});

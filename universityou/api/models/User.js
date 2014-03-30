@@ -16,7 +16,7 @@ module.exports = {
       required: true,
       minLength: 6
     },
-    subscriptions: {
+    courses: {
       type: 'ARRAY'
     },
 
