@@ -16,6 +16,9 @@ uniApp.factory('YoutubeService', ['$sce', function ($sce) {
                 '<embed src="//www.youtube.com/v/' + hash + '?' + str + '" type="application/x-shockwave-flash" width="640" height="390" allowscriptaccess="always" allowfullscreen="true"></embed>' +
             '</object>');
         },
+        preview: function (hash, size) {
+            return 'http://img.youtube.com/vi/' + hash + '/' + (size || 0 ) + '.jpg';
+        },
         ready: function(callback, data) {
             window.onYouTubePlayerReady = function () {
                 callback($('#player embed')[0]);

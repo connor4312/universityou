@@ -3,24 +3,33 @@ uniApp.controller('ClassCtrl', ['ClassFactory', 'CoursesFactory', '$scope', '$ro
         $scope.course = null;
         $scope.yt = yt;
         $scope.percent = 0;
+        $scope.route = $routeParams;
 
         var _user, _player;
         var seek = _.after(3, function () {
             index = _.findIndex(_user.courses, {course_id: $scope.course.id});
             if (index >= 0) {
-                setTimeout(function() {_player.seekTo(_user.courses[index].time, true);}, 500);
+                setTimeout(function() {
+                    if (_player.seekTo) _player.seekTo(_user.courses[index].time, true);
+                }, 500);
             }
 
-            if (_user) setInterval(function () {
-                user.watched({
-                    user: {
-                        course_id: $scope.course.id,
-                        class_id: $scope.cls.id,
-                        time: Math.floor(_player.getCurrentTime())
-                    },
-                    success: function () {}
+            if (_user) {
+                var interval = setInterval(function () {
+                    user.watched({
+                        user: {
+                            course_id: $scope.course.id,
+                            class_id: $scope.cls.id,
+                            time: Math.floor(_player.getCurrentTime())
+                        },
+                        success: function () {}
+                    });
+                }, 10000);
+
+                $scope.$on('$routeChangeStart', function () {
+                    clearInterval(interval);
                 });
-            }, 10000);
+            }
         });
 
         yt.ready(function(player) {

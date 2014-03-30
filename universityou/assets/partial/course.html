@@ -1,0 +1,19 @@
+<div class="half-yel">
+    <div class="container">
+        <div class="row">
+            <h1 class="col-sm-6 course-heading">{{ course.name }} <small>{{ percent }}% Finished</small></h1>
+            <span class="col-sm-6 text-right difficulty">
+                Difficulty:
+                <i ng-repeat="star in stars" class="fa fa-{{ star[0] }}"></i>
+            </span>
+        </div>
+        <div>
+            <div ng-repeat="cls in classes" ng-click="nav(cls.slug)" class="course-class row" ng-class="{primary: current_class == cls.id}">
+            
+                <div class="waypoint"></div>
+                <div class="course-preview col-sm-5 col-sm-offset-1" style="background-image:url('{{ yt.preview(cls.youtube, 0) }}')"></div>
+                <h2 class="col-sm-6">{{ cls.name }} <small>{{ cls.duration | niceSeconds }}</small></h2>
+            </div>
+        </div>
+    </div>
+</div>

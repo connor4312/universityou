@@ -4,9 +4,9 @@
         <div class="video" ng-bind-html="yt.show(cls.youtube, {rel: 0, showinfo: 0})"></div>
         <ul class="related">
             <li ng-repeat="related_class in course.related">
-                <a href="#/subject/{{ course.slug }}/{{ related_class.slug }}" ng-class="{primary: related_class.id == cls.id}"><span>{{ related_class.name }}</span></a>
+                <a href="#/{{ route.subject }}/{{ course.slug }}/{{ related_class.slug }}" ng-class="{primary: related_class.id == cls.id}"><span>{{ related_class.name }}</span></a>
             </li>
         </ul>
-        <h3 class="completion">You're {{ percent }}% finished with <a href="#/subject/{{ course.slug }}">{{ course.name }}</a></h3>
+        <h3 class="completion">You're {{ percent }}% finished with <a href="#/{{ route.subject }}/{{ course.slug }}">{{ course.name }}</a></h3>
     </div>
 </div>

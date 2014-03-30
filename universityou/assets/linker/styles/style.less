@@ -384,6 +384,101 @@ a.btn-custom-index{
     margin-top: 30px;
 }
 
+.course-heading {
+    line-height: 130px;
+    margin: 0;
+
+    small {
+        color: #333;
+        text-shadow: none;
+    }
+}
+.difficulty {
+    line-height: 130px;
+    font-size: 1.4em;
+    color: #8A631C;
+    font-weight: 300;
+
+    .fa-star-o {
+        color: #c58f2b;
+    }
+}
+
+.course-class {
+    cursor: pointer;
+    position: relative;
+
+    h2 {
+        font-weight: 300;
+        line-height: 120px;
+        margin: 0;
+    }
+
+    .course-preview {
+        height: 100px;
+        background-size: cover;
+        background-position: center center;
+        border-radius: 8px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    &:last-child .waypoint:after {
+        display: none;
+    }
+
+    &.primary {
+        background: #FFF4E0;
+        
+        .waypoint {
+            &:before {
+                border-color: #f8b333;
+            }
+
+            background: @brand-primary;
+            border-color: darken(@brand-primary, 10%);
+        }
+    }
+
+    .waypoint {
+        display: block;
+        width: 10px;
+        height: 10px;
+        border: 1px solid #ccc;
+        border-radius: 50%;
+        background: #fff;
+        position: absolute;
+        left: 4.166666665%;
+        top: 50%;
+        margin: -5px 0 0 -5px;
+
+        &:after {
+            position: absolute;
+            content: "";
+            display: block;
+            height: 120px;
+            left: 50%;
+            border-left: 1px dashed #ccc;
+            top: 50%;
+            z-index: -2;
+            width: 1px;
+        }
+        &:before {
+            position: relative;
+            width: 19px;
+            left: -6px;
+            top: -5px;
+            height: 19px;
+            border: 1px solid #ccc;
+            content: "";
+            display: block;
+            border-radius: 50%;
+            z-index: -1;
+            background: #fff;
+        }
+    }
+}
+
 footer {
     font-weight: 200;
     padding: 10px;
