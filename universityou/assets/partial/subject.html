@@ -12,7 +12,7 @@
                     <h2><a href="#/{{ subject.slug }}/{{ course.slug }}/">{{ course.name }} <small>Playing Time: {{ course.total_duration | niceSeconds }}</small></a></h2>
                     <ul class="course-subject-classlist">
                         <li ng-repeat="cls in course.classes">
-                            <a href="#/{{ subject.slug }}/{{ course.slug }}/{{ cls.slug }}"><i class="fa fa-play-circle"></i> {{ cls.name }}: <span>{{ cls.duration | niceSeconds }}</span></a>
+                            <a href="#/{{ subject.slug }}/{{ course.slug }}/{{ cls.slug }}"><i class="fa fa-play-circle"></i> {{ cls.name }} <span>{{ cls.duration | niceSeconds }}</span></a>
                         </li>
                     </ul>
                 </div>
