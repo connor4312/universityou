@@ -2,6 +2,7 @@ uniApp.controller('ClassCtrl', ['ClassFactory', 'CoursesFactory', '$scope', '$ro
         $scope.cls = null;
         $scope.course = null;
         $scope.yt = yt;
+        $scope.percent = 0;
 
         var _user, _player;
         var seek = _.after(3, function () {
@@ -42,6 +43,7 @@ uniApp.controller('ClassCtrl', ['ClassFactory', 'CoursesFactory', '$scope', '$ro
                 seek();
 
                 cls.all(function (classes) {
+                    var index, point, mk = 0;
                     for (var key in $scope.course.classes) {
                         index = _.findIndex(classes, function (c) {
                             return c.id == $scope.course.classes[key];
@@ -49,8 +51,15 @@ uniApp.controller('ClassCtrl', ['ClassFactory', 'CoursesFactory', '$scope', '$ro
 
                         if (index >= 0) {
                             $scope.course.related.push(classes[index]);
+
+                            if (classes[index].id === $scope.cls.id) {
+                                point = parseInt(key, 10);
+                            }
                         }
+                        mk = Math.max(mk, parseInt(key, 10));
                     }
+
+                    $scope.percent = Math.round(100 * point / mk);
                 });
             });
         });
