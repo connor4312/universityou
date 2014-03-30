@@ -3,6 +3,8 @@
 @font-family-sans-serif: "museo-sans";
 @brand-primary: #fac564;
 
+@red:#D8262E;
+
 // and disabled options for all buttons
 .button-variant(@color; @background; @border) {
   color: #666;
@@ -169,7 +171,38 @@ html, body {
         }
     }
 }
+.index{
+    margin-top: 20px;
 
+}
+.white{
+    padding-top: 10px;
+    background: #FFF;
+    border-radius: 3px;
+}
+a.btn-custom-index{
+    width:100%;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    border:none;
+    background: @red;
+    box-shadow: 0px 3px 0 darken(@red, 10%);
+    margin-bottom: 10px;
+    color:#FFF;
+    &hover{
+        color:#FFF!important;
+        box-shadow: 0px 3px 0 darken(@red, 10%);
+    }
+    &:active{
+        color:#FFF;
+        box-shadow: none;
+        position: relative;
+        top: 3px;
+    }
+}
+.top_videos{
+    margin-bottom: 10px;
+}
 .half-yel {
     position: relative;
 
