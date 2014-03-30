@@ -1,50 +1,23 @@
-<div id="jsCarousel">
-    <div>
-        <img src="images/img_1.jpg" /><br />
-        <span class="thumbnail-text">Image Text</span></div>
-    <div>
-        <img src="images/img_2.jpg" /><br />
-        <span class="thumbnail-text">Image Text</span></div>
-    <div>
-        <img src="images/img_3.jpg" /><br />
-        <span class="thumbnail-text">Image Text</span></div>
-    <div>
-        <img src="images/img_4.jpg" /><br />
-        <span class="thumbnail-text">Image Text</span></div>
-    <div>
-        <img src="images/img_5.jpg" /><br />
-        <span class="thumbnail-text">Image Text</span></div>
-    <div>
-        <img src="images/img_6.jpg" /><br />
-        <span class="thumbnail-text">Image Text</span></div>
-    <div>
-        <img src="images/img_7.jpg" /><br />
-        <span class="thumbnail-text">Image Text</span></div>
-    <div>
-        <img src="images/img_8.jpg" /><br />
-        <span class="thumbnail-text">Image Text</span></div>
-    <div>
-        <img src="images/img_9.jpg" /><br />
-        <span class="thumbnail-text">Image Text</span></div>
-    <div>
-        <img src="images/img_10.jpg" /><br />
-        <span class="thumbnail-text">Image Text</span></div>
-    <div>
-        <img src="images/img_11.jpg" /><br />
-        <span class="thumbnail-text">Image Text</span></div>
-    <div>
-        <img src="images/img_12.jpg" /><br />
-        <span class="thumbnail-text">Image Text</span></div>
-    <div>
-        <img src="images/img_13.jpg" /><br />
-        <span class="thumbnail-text">Image Text</span></div>
-    <div>
-        <img src="images/img_14.jpg" /><br />
-        <span class="thumbnail-text">Image Text</span></div>
-    <div>
-        <img src="images/img_15.jpg" /><br />
-        <span class="thumbnail-text">Image Text</span></div>
-    <div>
-        <img src="images/img_16.jpg" /><br />
-        <span class="thumbnail-text">Image Text</span></div>
+<div class="half-yel">
+    <div class="col-md-10 col-sm-offset-1 half-yel-container index">
+        <div class="row top_videos">
+            <div class="col-xs-6 col-xs-offset-3">
+                <div class="col-xs-2"><img src="http://placehold.it/64x64" alt=""></div>
+                <div class="col-xs-2"><img src="http://placehold.it/64x64" alt=""></div>
+                <div class="col-xs-2"><img src="http://placehold.it/64x64" alt=""></div>
+                <div class="col-xs-2"><img src="http://placehold.it/64x64" alt=""></div>
+                <div class="col-xs-2"><img src="http://placehold.it/64x64" alt=""></div>
+                <div class="col-xs-2"><img src="http://placehold.it/64x64" alt=""></div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-4 col-xs-offset-4 white">
+
+                <div class="col-xs-6" ng-repeat="subject in subjects">
+                        <a href="/#/{{subject.name}}" class="btn btn-custom-index">{{subject.name}}</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
