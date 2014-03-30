@@ -1,4 +1,4 @@
-uniApp.controller('IndexCtrl', ['SubjectFactory', '$scope', '$routeParams', function(subject_list, $scope, $routeParams) {
+uniApp.controller('IndexCtrl', ['SubjectFactory', '$scope', function(subject_list, $scope) {
         $scope.subjects = [];
         $scope.title = 'All Subjects';
 
